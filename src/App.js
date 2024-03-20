@@ -2,7 +2,7 @@ import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Word from './components/Word'
 import { getWord } from './service/WordService'
-import { BrowserRouter as Router, Routes, Route, HashRouter  } from 'react-router-dom';
+import {Routes, Route, HashRouter  } from 'react-router-dom';
 import Admin from './components/Admin'; // Giả sử bạn có một component Admin
 import Login from './components/Login';
 // import Per from './components/Performance';
