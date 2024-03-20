@@ -69,7 +69,7 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     height: '100vh',
-    backgroundImage: 'url("/111111.jpg")', 
+    backgroundImage: 'url("./111111.jpg")', 
     backgroundSize: 'cover', 
     backgroundPosition: 'center', 
     backgroundColor: '#f5f5f5'
