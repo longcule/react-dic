@@ -99,6 +99,7 @@ const Word2 = () => {
   };
   const closeModal = () => {
     setIsModalOpen(false);
+    setDeletedImageIds([]); 
   };
 
   const handleDelete2 = async (id) => {
