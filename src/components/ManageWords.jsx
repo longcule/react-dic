@@ -97,7 +97,7 @@ const Word2 = () => {
   const closeModal2 = () => {
     setIsModalOpen2(false);
   };
-  const closeModal = () => {
+  const closeModal = () => {  
     setIsModalOpen(false);
     setDeletedImageIds([]); 
     
