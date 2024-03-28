@@ -433,7 +433,7 @@ const Word2 = () => {
               />
             </div>
 
-            <div style={formStyles.formGroup}>
+            {/* <div style={formStyles.formGroup}>
               <label style={formStyles.label}>Image:</label>
               <input
                 type="file"
@@ -447,7 +447,25 @@ const Word2 = () => {
                 }}
                 style={formStyles.input}
               />
-            </div>
+            </div> */}
+            <div style={formStyles.formGroup}>
+                <label style={formStyles.label}>Images:</label>
+                <input
+                  type="file"
+                  accept="image/*" // This restricts the file picker to image files
+                  multiple // This enables selecting multiple files
+                  onChange={(e) => {
+                    // Handle multiple file selections
+                    if (e.target.files && e.target.files.length > 0) {
+                      // Create an array with the selected files
+                      const filesArray = Array.from(e.target.files);
+                      // Assuming you want to store the file objects in selectedRow under an 'images' key
+                      setSelectedRow({ ...selectedRow, images: filesArray });
+                    }
+                  }}
+                  style={formStyles.input}
+                />
+              </div>
 
             {/* <div style={{ padding: '15px 10px', maxWidth: '100%', overflowX: 'auto' }}>
               <div style={{ display: 'flex' }}>
