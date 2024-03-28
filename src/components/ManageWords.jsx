@@ -460,7 +460,7 @@ const Word2 = () => {
                       // Create an array with the selected files
                       const filesArray = Array.from(e.target.files);
                       // Assuming you want to store the file objects in selectedRow under an 'images' key
-                      setSelectedRow({ ...selectedRow, images: filesArray });
+                      setSelectedRow({ ...selectedRow, image2: filesArray });
                     }
                   }}
                   style={formStyles.input}
