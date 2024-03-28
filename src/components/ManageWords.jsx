@@ -594,41 +594,12 @@ const Word2 = () => {
                       // Create an array with the selected files
                       const filesArray = Array.from(e.target.files);
                       // Assuming you want to store the file objects in selectedRow under an 'images' key
-                      setSelectedRow({ ...selectedRow, images: filesArray });
+                      setSelectedRow({ ...selectedRow, image: filesArray });
                     }
                   }}
                   style={formStyles.input}
                 />
               </div>
-
-              <div style={{ padding: '15px 10px', maxWidth: '100%', overflowX: 'auto' }}>
-              <div style={{ display: 'flex' }}>
-
-                {selectedRow.image && selectedRow.image.length > 0 && selectedRow.image.map((imageSrc) => (
-                  <div key={imageSrc.id} style={{ position: 'relative', height: '200px', marginRight: '10px' }}>
-                    <img
-                      src={imageSrc.link}
-                      style={{ height: '100%', width: 'auto' }}
-                    />
-                    <button
-                      onClick={() => handleDeleteImage(imageSrc.id)}
-                      style={{
-                        position: 'absolute',
-                        top: 0,
-                        right: 0,
-                        backgroundColor: 'transparent',
-                        border: 'none',
-                        cursor: 'pointer',
-                        padding: '0.5rem',
-                      }}
-                    >
-                      x
-                    </button>
-                  </div>
-                ))}
-
-              </div>
-            </div>
 
               <div style={buttonContainerStyles}>
                 <button onClick={closeModal2} style={{ marginRight: '10px' }} className="btn btn-outline-dark">Close</button>

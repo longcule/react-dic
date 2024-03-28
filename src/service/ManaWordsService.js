@@ -19,16 +19,17 @@ export const addWord = async (word, meaning, note, subject, image) => {
   try {
     const user_add  = JSON.parse(loginInfo).user_name;
     const formData = new FormData();
+    console.log(image);
     if (image != undefined) {
-      formData.append('src_img', image);
+      for(const imagesss of image)
+      formData.append("src_img", imagesss)
     }
+    console.log(formData.getAll('src_img'));
     formData.append('word', word);
     formData.append('meaning', meaning);
     formData.append('note', note);
     formData.append('user_add', user_add);
     formData.append('subject', subject);
-    console.log(formData)
-    console.log(Object.fromEntries(formData.entries()));
 
     const response = await axios.post('https://fastapi-dic.vercel.app/api/v1/product/add', formData, {
       headers: {
@@ -61,7 +62,8 @@ export const editWord= async (id_word, word, meaning, note, subject, image, list
     const formData = new FormData();
     console.log(list_id_img)
     if (image != undefined) {
-      formData.append('src_img', image);
+      for(const imagesss of image)
+      formData.append("src_img", imagesss)
     }
     console.log(formData.getAll('src_img'));
     const requestOptions = {
