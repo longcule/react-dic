@@ -74,7 +74,14 @@ const Word = () => {
     { name: <b style={{fontWeight: 'bold', fontSize: '15px', textAlign: 'center'}}>Meaning</b>, selector: (row) => row.meaning, sortable: true, width: "12rem" },
     { name: <b style={{fontWeight: 'bold', fontSize: '15px', textAlign: 'center'}}>Description</b>, selector: (row) => row.note, sortable: true, width: "13rem" },
     { name: <b style={{fontWeight: 'bold', fontSize: '15px', textAlign: 'center'}}>User Edit status</b>, selector: (row) => row.user_add, sortable: true, width: "11rem"},
-    { name: <b style={{fontWeight: 'bold', fontSize: '15px', textAlign: 'center'}}>Image</b>, selector: (row) => <img src={row.image[0]} width={25} height={25} />, width: "5rem"},
+    {
+      name: <b style={{ fontWeight: 'bold', fontSize: '17px', textAlign: 'center' }}>Image</b>,
+      selector: (row) => {
+        const imageUrl = row.image && row.image.length > 0 && row.image[0].link ? row.image[0].link : 'https://raw.githubusercontent.com/longcule/react-dic/main/public/logo192.png';
+        return <img src={imageUrl} width={25} height={25} alt="Row" />;
+      },
+      width: "10rem"
+    },
     { name: <b style={{fontWeight: 'bold', fontSize: '15px', textAlign: 'center'}}>Subject</b>, selector: (row) => row.subject, sortable: true, width: "12rem"},
 
   ];
