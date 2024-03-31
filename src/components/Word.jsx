@@ -247,9 +247,9 @@ const Word = () => {
               {selectedRow.image.map((imageSrc, index) => (
                 <div key={index} style={{ height: '200px', width: 'auto', marginRight: '10px' }}>
                   <img
-                    src={imageSrc}
+                    src={imageSrc.link}
                     style={{ height: '100%', width: 'auto', cursor: 'pointer' }}
-                    onClick={() => openImage(imageSrc)}
+                    onClick={() => openImage(imageSrc.link)}
                     alt={`Image ${index}`}
                   />
                 </div>
