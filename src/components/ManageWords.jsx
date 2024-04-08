@@ -97,7 +97,7 @@ const Word2 = () => {
   const closeModal2 = () => {
     setIsModalOpen2(false);
   };
-  const closeModal = () => {  
+  const closeModal = () => {
     setIsModalOpen(false);
     setDeletedImageIds([]); 
     
@@ -154,7 +154,15 @@ const Word2 = () => {
     { name: <b style={{ fontWeight: 'bold', fontSize: '17px', textAlign: 'center' }}>Meaning</b>, selector: (row) => row.meaning, sortable: true, width: "10rem" },
     { name: <b style={{ fontWeight: 'bold', fontSize: '17px', textAlign: 'center' }}>Description</b>, selector: (row) => row.note, sortable: true, width: "8rem" },
     { name: <b style={{ fontWeight: 'bold', fontSize: '17px' }}>User Edit status</b>, selector: (row) => row.user_add, sortable: true, width: "10rem" },
-    { name: <b style={{ fontWeight: 'bold', fontSize: '17px', textAlign: 'center' }}>Image</b>, selector: (row) => <img src={row.image[0].link} width={25} height={25} />, width: "10rem" },
+    // { name: <b style={{ fontWeight: 'bold', fontSize: '17px', textAlign: 'center' }}>Image</b>, selector: (row) => <img src={row.image[0].link} width={25} height={25} />, width: "10rem" },
+    {
+      name: <b style={{ fontWeight: 'bold', fontSize: '17px', textAlign: 'center' }}>Image</b>,
+      selector: (row) => {
+        const imageUrl = row.image && row.image.length > 0 && row.image[0].link ? row.image[0].link : 'https://raw.githubusercontent.com/longcule/react-dic/main/public/logo192.png';
+        return <img src={imageUrl} width={25} height={25} alt="Row" />;
+      },
+      width: "10rem"
+    },
     { name: <b style={{ fontWeight: 'bold', fontSize: '17px', textAlign: 'center' }}>Subject</b>, selector: (row) => row.subject, sortable: true, width: "15rem" },
 
     {
@@ -425,7 +433,7 @@ const Word2 = () => {
               />
             </div>
 
-            <div style={formStyles.formGroup}>
+            {/* <div style={formStyles.formGroup}>
               <label style={formStyles.label}>Image:</label>
               <input
                 type="file"
@@ -439,7 +447,25 @@ const Word2 = () => {
                 }}
                 style={formStyles.input}
               />
-            </div>
+            </div> */}
+            <div style={formStyles.formGroup}>
+                <label style={formStyles.label}>Images:</label>
+                <input
+                  type="file"
+                  accept="image/*" // This restricts the file picker to image files
+                  multiple // This enables selecting multiple files
+                  onChange={(e) => {
+                    // Handle multiple file selections
+                    if (e.target.files && e.target.files.length > 0) {
+                      // Create an array with the selected files
+                      const filesArray = Array.from(e.target.files);
+                      // Assuming you want to store the file objects in selectedRow under an 'images' key
+                      setSelectedRow({ ...selectedRow, image2: filesArray });
+                    }
+                  }}
+                  style={formStyles.input}
+                />
+              </div>
 
             {/* <div style={{ padding: '15px 10px', maxWidth: '100%', overflowX: 'auto' }}>
               <div style={{ display: 'flex' }}>
@@ -568,41 +594,12 @@ const Word2 = () => {
                       // Create an array with the selected files
                       const filesArray = Array.from(e.target.files);
                       // Assuming you want to store the file objects in selectedRow under an 'images' key
-                      setSelectedRow({ ...selectedRow, images: filesArray });
+                      setSelectedRow({ ...selectedRow, image: filesArray });
                     }
                   }}
                   style={formStyles.input}
                 />
               </div>
-
-              <div style={{ padding: '15px 10px', maxWidth: '100%', overflowX: 'auto' }}>
-              <div style={{ display: 'flex' }}>
-
-                {selectedRow.image && selectedRow.image.length > 0 && selectedRow.image.map((imageSrc) => (
-                  <div key={imageSrc.id} style={{ position: 'relative', height: '200px', marginRight: '10px' }}>
-                    <img
-                      src={imageSrc.link}
-                      style={{ height: '100%', width: 'auto' }}
-                    />
-                    <button
-                      onClick={() => handleDeleteImage(imageSrc.id)}
-                      style={{
-                        position: 'absolute',
-                        top: 0,
-                        right: 0,
-                        backgroundColor: 'transparent',
-                        border: 'none',
-                        cursor: 'pointer',
-                        padding: '0.5rem',
-                      }}
-                    >
-                      x
-                    </button>
-                  </div>
-                ))}
-
-              </div>
-            </div>
 
               <div style={buttonContainerStyles}>
                 <button onClick={closeModal2} style={{ marginRight: '10px' }} className="btn btn-outline-dark">Close</button>
