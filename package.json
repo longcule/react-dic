@@ -1,7 +1,7 @@
 {
   "name": "react-dic",
   "version": "0.1.0",
-  "homepage": "https://nkldic.id.vn",
+  "homepage": "https://longcule.github.io/react-dic/#",
   "private": false,
   "dependencies": {
     "@emotion/react": "^11.11.3",
