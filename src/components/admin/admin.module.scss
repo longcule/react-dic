@@ -1,0 +1,72 @@
+// Define variables for commonly used values
+$admin-padding: 20px;
+$header-text-align: center;
+$light-background: #f0f2f5; // Light grey background for better contrast
+$logout-button-bg: #ff4d4f; // Red background for logout for emphasis
+$sidebar-width: 200px; // Adjust based on your actual layout
+
+// Use nesting to organize related styles
+.adminContainer {
+  padding: $admin-padding; // Use the variable for padding
+
+  .siteLayoutBackground {
+    background-color: $light-background;
+    padding: 24px;
+    min-height: 360px;
+  }
+
+  .header {
+    text-align: $header-text-align; // Use the variable for text alignment
+  }
+  
+  // Additional styles for the admin page can be added here
+}
+
+// Styles specific to the sidebar and menu
+.sidebar {
+  width: $sidebar-width;
+  .menu {
+    margin-top: 20;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    .menu-item {
+      flex-grow: 1;
+      &.logout {
+        margin-top: 70; // Pushes the logout button to the bottom
+        background-color: $logout-button-bg; // Red background for visibility
+        color: white;
+        &:hover {
+          background-color: darken($logout-button-bg, 10%);
+        }
+      }
+    }
+  }
+}
+// admin.module.scss
+
+.trigger {
+  color: white; // Ensuring the menu icon is white
+  cursor: pointer; // Makes it clear that the icon is clickable
+
+  &:hover {
+    color: #ccc; // Light grey on hover for better user feedback
+  }
+}
+// admin.module.scss
+
+.logoImage {
+  display: block; // to ensure it takes the full width if necessary
+  max-width: 100%; // to make sure it doesn't overflow the sidebar
+  height: auto; // to maintain the aspect ratio of the image
+  margin-bottom: 16px; // add some space below the logo
+}
+
+.footer {
+  color: white; // Set the text color to white
+  text-align: center; // Center the text
+  margin-top: 10px; // Add space above the footer text
+  padding: 10px; // Add some padding for spacing
+  font-size: 20px;
+  // Add any additional styling here
+}
