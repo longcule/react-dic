@@ -1,0 +1,47 @@
+.login-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  // background-image: url('/long.jpg');
+
+  .login-form {
+    padding: 60px; // Increased padding for more space inside the form
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px; // Increased max-width for a larger form
+
+    .ant-form-item {
+      margin-bottom: 20px; // Reduced margin-bottom for proportional spacing
+    }
+
+    .login-form-button {
+      width: 100%;
+      height: 50px; // Increased height for a larger button
+      font-size: 18px; // Increased font-size for larger text
+      background: #1890ff;
+      border-color: #1890ff;
+
+      &:hover {
+        background: #40a9ff;
+        border-color: #40a9ff;
+      }
+    }
+
+    .site-form-item-icon {
+      color: rgba(0, 0, 0, 0.25);
+      font-size: 20px; // Optionally increase the font size of icons if any
+    }
+    .error {
+      color: #ff4d4f; // Bright red for visibility
+      font-size: 16px; // Larger font size for readability
+      margin-top: 20px; // Spacing above, adjust if needed to increase visibility
+      text-align: center; // Center align the text
+      width: 100%; // Full width to ensure it is centered
+      display: block; // Display block to maintain spacing
+    }
+  }
+}
