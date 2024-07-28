@@ -10,7 +10,7 @@ const MainRoutes = () => {
       <Routes>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/admin" element={<AdminPage />} />
-        <Route path="/" element={<Navigate to="/login" />} />
+        <Route path="/" element={<Navigate to="/mainweb" />} />
         <Route path = "/mainweb" element = {<PreviewWord />}/>
         {/* Thêm các route khác ở đây */}
       </Routes>
