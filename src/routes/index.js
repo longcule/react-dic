@@ -4,7 +4,6 @@ import LoginPage from '../components/login/login.component';
 import AdminPage from '../components/admin/admin.component' ;
 import PreviewWord from '../components/previewWord/previewWord.component';
 
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Routes, Route, HashRouter  } from 'react-router-dom';
 import ProtectedRoute from './components/ProtectedRoute';
