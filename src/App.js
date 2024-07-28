@@ -1,31 +1,13 @@
-import './App.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import Word from './components/Word'
-import { getWord } from './service/WordService'
-import {Routes, Route, HashRouter  } from 'react-router-dom';
-import Admin from './components/Admin'; // Giả sử bạn có một component Admin
-import Login from './components/Login';
-// import Per from './components/Performance';
-import ProtectedRoute from './components/ProtectedRoute';
+import React from 'react';
+import MainRoutes from './routes'; // Đảm bảo đường dẫn đúng
+import 'antd/dist/reset.css'; // Add this line at the top of your file
 
 function App() {
   return (
-    <HashRouter>
-      <Routes>
-        {/* Các routes khác */}
-        <Route path='/' element={<Word />} />
-        <Route path="/login" element={<Login />} />
-        {/* <Route path="/per" element={<Per />} /> */}
-        <Route path="/admin" element={<ProtectedRoute><Admin /></ProtectedRoute>} >
-          {/* <Route path="manage-accounts" element={<ManageAccounts />} />
-          <Route path="manage-users" element={<ManageUsers />} /> */}
-
-        </Route>
-      </Routes>
-    </HashRouter>
+    <div>
+      <MainRoutes />
+    </div>
   );
 }
 
-
-
-export default App
+export default App;
