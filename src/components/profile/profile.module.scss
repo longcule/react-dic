@@ -1,0 +1,41 @@
+.profile-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+
+  .ant-card {
+    max-width: 800px; // Set a max-width for the card
+    width: 100%; // Make it responsive
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); // Add some shadow for depth
+    border-radius: 8px; // Round the corners
+    overflow: hidden; // Hide overflow for the border-radius to take effect
+
+    .ant-card-body {
+      padding: 2rem;
+
+      .avatar-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+      }
+
+      .ant-avatar {
+        color: #f56a00;
+        background-color: #fde3cf;
+      }
+
+      .ant-descriptions {
+        margin-top: 1rem;
+      }
+
+      .ant-descriptions-item-content {
+        color: #555; // Subtle text color for content
+      }
+
+      .ant-descriptions-item-label {
+        font-weight: bold; // Bold labels for distinction
+        color: #000; // Darker text color for labels
+      }
+    }
+  }
+}

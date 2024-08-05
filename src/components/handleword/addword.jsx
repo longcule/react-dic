@@ -48,9 +48,13 @@ const AddWord = ({ open, onOk, onCancel }) => {
       console.log("response",response);
       if (response.statusCode !== '200') {
         message.success(response.message);
+        form.resetFields();
+        setFileList([]);
       } else {
         message.success('Word added successfully');
         console.log('API Response:', response);
+        form.resetFields();
+        setFileList([]);
         onOk(response);
       }
     } catch (error) {
