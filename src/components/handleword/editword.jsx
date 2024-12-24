@@ -4,7 +4,7 @@ import { PlusOutlined } from '@ant-design/icons';
 import { updateWord } from '../../services/wordService';
 
 const loginInfo = localStorage.getItem('loginInfo');
-const userId = loginInfo ? JSON.parse(loginInfo).userId : null;
+const userId = loginInfo ? JSON.parse(loginInfo).id.toString() : null;
 
 const EditWord = ({ open, word, onOk, onCancel }) => {
   const [form] = Form.useForm();
@@ -52,10 +52,13 @@ const EditWord = ({ open, word, onOk, onCancel }) => {
     });
   
     const completeData = {
+      "id_product": word.id.toString(),
+      "id_user_src": userId,
       "word": values.word,
+      "list_id_img": "1,2",
       "meaning": values.meaning,
       "note": values.note,
-      "user_add": "1",
+      "user_add": values.user_add,
       "subject": values.subject,
       "image": attachments
     };
@@ -64,15 +67,14 @@ const EditWord = ({ open, word, onOk, onCancel }) => {
     try {
       const response = await updateWord(completeData);
       console.log("response",response);
-      if (response.statusCode !== '200') {
-        message.error(response.message);
-      } else {
+      if (response.message.startsWith("Thay đổi thông tin từ thành công")) {
         message.success('Word added successfully');
         console.log('API Response:', response);
         onOk(response);
+      } else {
+        message.error(response.message);
       }
     } catch (error) {
-      message.error('Error adding word');
       console.error('Error adding word:', error);
     }
   };

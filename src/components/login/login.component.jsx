@@ -22,7 +22,7 @@ const LoginPage = () => {
       // console.log(values.username, values.password)
       // console.log("status: ", response.json().status)
       // const statusCode = response.status;
-      console.log('Login response:', response);
+      console.log('Login response:', response[1]);
       if (response[1] === 200) {
         localStorage.setItem('loginInfo', JSON.stringify(response[0]));
         navigate('/admin'); // navigate to the admin page

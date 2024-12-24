@@ -4,7 +4,7 @@ import { PlusOutlined } from '@ant-design/icons';
 import { addWord } from '../../services/wordService';
 
 const loginInfo = localStorage.getItem('loginInfo');
-const userId = loginInfo ? JSON.parse(loginInfo).id : null;
+const userId = loginInfo ? JSON.parse(loginInfo).id.toString() : null;
 
 const AddWord = ({ open, onOk, onCancel }) => {
   const [form] = Form.useForm();
@@ -37,7 +37,7 @@ const AddWord = ({ open, onOk, onCancel }) => {
       "word": values.word,
       "meaning": values.meaning,
       "note": values.note,
-      "user_add": userId.toString(),
+      "user_add": userId,
       "subject": values.subject,
       "image": attachments
     };

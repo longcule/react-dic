@@ -3,7 +3,7 @@ import React from 'react';
 import { Navigate } from 'react-router-dom';
 
 const ProtectedRoute = ({ children }) => {
-  const isAuthenticated = localStorage.getItem('token'); // Kiểm tra token
+  const isAuthenticated = localStorage.getItem('loginInfo'); // Kiểm tra token
 
   if (!isAuthenticated) {
     // Nếu không có token, chuyển hướng đến trang đăng nhập
