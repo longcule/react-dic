@@ -45,7 +45,10 @@ const Word = () => {
         const formattedResponse = response.map(word => ({
           ...word,
           formattedDate: moment(word.date, 'HH:mm:ss DD/MM/YYYY').format('DD-MM-YYYY')
-        }));
+        }))
+        .sort((a, b) => 
+          a.subject.trim().localeCompare(b.subject.trim(), undefined, { sensitivity: 'base' })
+        );
         setWordData(formattedResponse);
         setFilteredWordData(formattedResponse);
         setLoading(false);
